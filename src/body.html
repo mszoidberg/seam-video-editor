@@ -1,0 +1,58 @@
+<div id="app">
+  <header class="topbar">
+    <div class="brand"><svg width="22" height="22" viewBox="0 0 32 32" aria-hidden="true"><rect x="2" y="6" width="12" height="20" rx="3" fill="var(--accent)"/><rect x="18" y="6" width="12" height="20" rx="3" fill="var(--accent-2)"/><path d="M14 16h4" stroke="var(--text)" stroke-width="2.5" stroke-linecap="round"/></svg><span>Seam</span></div>
+    <div class="top-actions">
+      <button id="undoBtn" class="icon-btn" aria-label="Undo" title="Undo (Ctrl+Z)"></button>
+      <button id="redoBtn" class="icon-btn" aria-label="Redo" title="Redo (Ctrl+Shift+Z)"></button>
+      <button id="formatChip" class="chip" title="Aspect ratio">16:9</button>
+      <button id="exportBtn" class="btn primary" disabled>Export</button>
+    </div>
+  </header>
+
+  <div id="unsupported" class="banner" hidden><span></span></div>
+
+  <main class="stage">
+    <div class="preview-wrap" id="previewWrap">
+      <canvas id="preview" aria-label="Preview"></canvas>
+      <div id="emptyState" class="empty">
+        <button id="emptyAdd" class="empty-btn">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+          <b>Add videos &amp; photos</b>
+          <small>Pick as many as you like. Add music after.</small>
+        </button>
+        <p class="private">Everything stays on your device. Nothing is uploaded.</p>
+      </div>
+    </div>
+  </main>
+
+  <div class="transport">
+    <span id="timeLabel" class="time">0:00.0 / 0:00.0</span>
+    <button id="playBtn" class="play" aria-label="Play"></button>
+    <div class="zoom">
+      <button id="zoomOutBtn" class="icon-btn" aria-label="Zoom out timeline"></button>
+      <button id="zoomInBtn" class="icon-btn" aria-label="Zoom in timeline"></button>
+    </div>
+  </div>
+
+  <section class="timeline">
+    <canvas id="ruler" class="ruler"></canvas>
+    <div id="rulerHit" class="ruler-hit"></div>
+    <div class="tl-scroll" id="tlScroll">
+      <div class="tl-content" id="tlContent">
+        <div class="track video-track" id="videoTrack"></div>
+        <div class="track music-track" id="musicTrack"></div>
+      </div>
+    </div>
+    <div class="playhead"></div>
+  </section>
+
+  <nav class="toolbar" id="toolbar"></nav>
+</div>
+
+<div class="sheet-backdrop" id="sheetBackdrop"></div>
+<div class="sheet" id="sheet" role="dialog" aria-modal="true"></div>
+<div id="toast" class="toast" role="status"></div>
+<div class="drop-overlay">Drop videos, photos or music</div>
+
+<input type="file" id="fileVisual" multiple accept="video/*,image/*,.mov,.mp4,.m4v,.mkv,.webm" hidden>
+<input type="file" id="fileAudio" multiple accept="audio/*,.mp3,.m4a,.aac,.wav,.ogg,.opus,.flac,video/*" hidden>

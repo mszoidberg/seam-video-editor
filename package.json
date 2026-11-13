@@ -1,0 +1,14 @@
+{
+  "name": "seam-video-editor",
+  "version": "1.0.0",
+  "description": "Browser video editor: stitch videos, photos and music with transitions, export up to 4K with no watermark.",
+  "scripts": {
+    "build": "node build.mjs"
+  },
+  "dependencies": {
+    "@mediabunny/aac-encoder": "1.62.1",
+    "esbuild": "0.25.10",
+    "mediabunny": "1.62.1"
+  },
+  "private": true
+}
